@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Happy Pack</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all" href="../static/css/gtvg.css" th:href="@{/css/gtvg.css}" />
+    <link rel="icon" type="image/x-icon" href="/images/happyPackLogo.ico"/>
+</head>
+
+  <body>
+
+  <header class="site-header">
+      <div class="site-header__inner">
+          <a class="brand" href="home.html" th:href="@{/}">
+              <img src="../static/images/happyPackLogo.png" alt="Happy Pack" th:src="@{/images/happyPackLogo.png}" />
+              <span class="brand__text">
+            <span class="brand__name">Happy Pack</span>
+            <span class="brand__tagline">Regalos útiles para cada ocasión</span>
+          </span>
+          </a>
+          <nav class="main-nav" aria-label="Navegación principal">
+              <a href="product/list.html" th:href="@{/product/list}">Productos</a>
+              <a href="customer/list.html" th:href="@{/customer/list}">Clientes</a>
+              <a href="home1.html" th:href="@{/home1}">Home 1</a>
+              <a href="home2.html" th:href="@{/home2}">Home 2</a>
+          </nav>
+      </div>
+  </header>
+
+    <main class="page">
+      <section class="hero">
+        <div class="page-header">
+          <p class="eyebrow">Panel principal</p>
+          <h1 th:text="'Hola ' + ${name} + ', hoy es ' + ${today} + ' y te esperamos con las mejores ofertas.'">Hola Fernando, hoy es 17 de junio 2026 y te esperamos con las mejores ofertas.</h1>
+          <p class="lead">Gestiona productos, pedidos y clientes desde una experiencia rápida, clara y preparada para el día a día.</p>
+        </div>
+
+
+        <aside class="hero__panel">
+          <p class="eyebrow">Hoy</p>
+          <h2 th:text="${name}">Fernando</h2>
+          <p class="muted" th:text="${today}">17 de junio 2026</p>
+          <p class="muted">Catálogo promocional con stock, pedidos y comentarios conectados a SQLite.</p>
+        </aside>
+      </section>
+        <section class="quick-links" aria-label="Accesos principales">
+            <article class="quick-link">
+                <h3>Oferta del día</h3>
+                <p th:text="${productName}">Producto</p>
+                <p th:text="${productCategory}">Categoría</p>
+                <p th:text="${productPrice + ' €'}">Precio</p>
+            </article>
+            <article class="quick-link">
+                <h3>Pedido</h3>
+                <p th:text="'Pedido nº ' + ${orderNumber}">Pedido</p>
+                <p th:text="'Fecha estimada de entrega: ' + ${#calendars.format(deliveryDate, 'dd/MM/yyyy')}">Fecha estimada de entrega</p>
+            </article>
+            <article class="quick-link">
+                <h3>Contacto</h3>
+                <p th:text="${company}">Empresa</p>
+                <p th:text="${email}">Email</p>
+            </article>
+        </section>
+    </main>
+
+  <footer class="site-footer">
+      <div class="site-footer__inner">
+          <span>&copy; 2026 Happy Pack</span>
+      </div>
+  </footer>
+
+  </body>
+
+</html>
